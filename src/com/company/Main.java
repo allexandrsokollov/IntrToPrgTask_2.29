@@ -11,42 +11,20 @@ package com.company;
 
 
 import java.util.Locale;
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 	Locale.setDefault(Locale.ROOT);
 
-	Scanner in = new Scanner(System.in);
+	Customer customer = new Customer();
+	Cake firstCake = new Cake();
+	Cake secondCake = new Cake();
 
-        System.out.print("Enter amount of money: ");
-        double amountOfMoney = in.nextDouble();
+	customer.countMaxAmountOfCakes(firstCake, secondCake);
 
-        System.out.print("\nEnter first type cake price: ");
-        double firstTypeCakePrice = in.nextDouble();
-        System.out.print("\nEnter amount of first type cake: ");
-        int amountOfFirstTypeCake = in.nextInt();
+	System.out.printf("\n\nmaximum amount of cakes we can buy is: %d", customer.getMaxAmountOfCakesAbleToBuy());
 
-        System.out.print("\nEnter second type cake price: ");
-        double secondTypeCakePrice = in.nextDouble();
-        System.out.print("\nEnter amount of second type cake: ");
-        int amountOfSecondTypeCake = in.nextInt();
-
-
-        int maxAmountOfCakes = 0;
-
-        for(int i = 1; i <= amountOfFirstTypeCake; i++) {
-            for(int j = 1; j <= amountOfSecondTypeCake; j++) {
-                double costOfPurchase = i * amountOfFirstTypeCake + j * amountOfSecondTypeCake;
-                int amountOfCakesAtTheMoment = i + j;
-                if(costOfPurchase <= amountOfMoney && amountOfCakesAtTheMoment > maxAmountOfCakes) {
-                    maxAmountOfCakes = amountOfCakesAtTheMoment;
-                }
-            }
-        }
-
-        System.out.printf("\n\nmaximum amount of cakes we can buy is: %d" , maxAmountOfCakes);
 
 
     }
