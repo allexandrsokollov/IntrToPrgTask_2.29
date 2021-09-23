@@ -5,37 +5,47 @@ import java.util.Scanner;
 public class Customer {
 
     private double amountOfMoney;
-    private int maxAmountOfCakesAbleToBuy;
+    private int maxAmountOfCakesAbleToBuy = 0;
     private Scanner in = new Scanner(System.in);
 
-    public Customer() {
-        System.out.print("\nEnter amount of money: ");
-        this.amountOfMoney = in.nextDouble();
-        this.maxAmountOfCakesAbleToBuy = 0;
-    }
+    public void countMaxAmountOfCakes(Cake first, Cake second){
+        if (amountOfMoney < (first.getCakePrice() + second.getCakePrice()) ||
+                first.getAmountOfThisCake() == 0 || second.getAmountOfThisCake() == 0) {
+            return;
+        }
 
-    public int countMaxAmountOfCakes(Cake first, Cake second){
+        if (first.getCakePrice() < second.getCakePrice()) {
+            Cake tmp = first;
+            first = second;
+            second = tmp;
+        }
 
-        if(first.getAmount() == 0 || second.getAmount() == 0)
-            return maxAmountOfCakesAbleToBuy;
-        else {
-            for (int i = 1; i <= first.getAmount(); i++) {
-                for (int j = 1; j <= second.getAmount(); j++) {
-
-                    double costOfPurchase = i * first.getCost() + j * second.getCost();
-                    int amountOfCakesAtTheMoment = i + j;
-
-                    if (costOfPurchase <= amountOfMoney && amountOfCakesAtTheMoment > maxAmountOfCakesAbleToBuy) {
-                        maxAmountOfCakesAbleToBuy = amountOfCakesAtTheMoment;
-                    }
-                }
-            }
-
-            return maxAmountOfCakesAbleToBuy;
+        buyCake(first, 1);
+        buyCakeWhileAble(second);
+        if (amountOfMoney >= first.getCakePrice()) {
+            buyCakeWhileAble(first);
         }
     }
 
+    private void buyCakeWhileAble(Cake cake) {
+
+    double amountOfCakesAbleToBuy = amountOfMoney / cake.getCakePrice();
+    buyCake(cake, (int)amountOfCakesAbleToBuy);
+
+    }
+
+    private void buyCake(Cake cake, int amount) {
+        maxAmountOfCakesAbleToBuy += amount;
+        cake.decrementAmountOfCake(amount);
+        amountOfMoney -= cake.getCakePrice() * amount;
+    }
+
+
     public int getMaxAmountOfCakesAbleToBuy() {
         return maxAmountOfCakesAbleToBuy;
+    }
+
+    public void setAmountOfMoney(double amountOfMoney) {
+        this.amountOfMoney = amountOfMoney;
     }
 }

@@ -1,28 +1,37 @@
 package com.company;
 
-import java.util.Scanner;
-
 public class Cake {
-    private static int cakeNumber = 0;
-    private double cost;
-    private int amount;
-    private Scanner in = new Scanner(System.in);
+    private double cakePrice;
+    private int amountOfThisCake;
+    private static int amountOfCakes;
+    private int numberOfThisCake;
 
     public Cake() {
-        this.cakeNumber++;
-
-        System.out.print("\nEnter price of cake number " + cakeNumber + ": ");
-        this.cost = in.nextDouble();
-
-        System.out.print("Enter amount of cake number " + cakeNumber + ": ");
-        this.amount = in.nextInt();
+        amountOfCakes++;
+        numberOfThisCake = amountOfCakes;
     }
 
-    public double getCost() {
-        return cost;
+    public double getCakePrice() {
+        return cakePrice;
     }
 
-    public int getAmount() {
-        return amount;
+    public void setCakePrice(double cakePrice) {
+        this.cakePrice = cakePrice;
+    }
+
+    public int getAmountOfThisCake() {
+        return amountOfThisCake;
+    }
+
+    public void setAmountOfThisCake(int amountOfThisCake) {
+        this.amountOfThisCake = amountOfThisCake;
+    }
+
+    public int getNumberOfThisCake() {
+        return numberOfThisCake;
+    }
+
+    public void decrementAmountOfCake(int amount) {
+        amountOfThisCake -= amount;
     }
 }

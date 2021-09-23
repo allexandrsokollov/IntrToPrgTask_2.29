@@ -1,4 +1,6 @@
 package com.company;
+
+import java.util.Locale;
 /*
 В магазине продаются торты 2-х видов. Цена первого торта Р1, в наличии N1 торта такого вида. Цена второго торта Р2,
 в наличии №2 торта такого вида.
@@ -9,22 +11,22 @@ package com.company;
 Если такое невозможно, торты вообще не покупать.
 */
 
-
-import java.util.Locale;
-
 public class Main {
 
     public static void main(String[] args) {
-	Locale.setDefault(Locale.ROOT);
+        Locale.setDefault(Locale.getDefault());
 
-	Customer customer = new Customer();
-	Cake firstCake = new Cake();
-	Cake secondCake = new Cake();
+        Customer customer = new Customer();
+        GetDataForClasses.getCustomerData(customer);
 
-	customer.countMaxAmountOfCakes(firstCake, secondCake);
+        Cake first = new Cake();
+        Cake second = new Cake();
+        GetDataForClasses.getCakeData(first);
+        GetDataForClasses.getCakeData(second);
 
-	System.out.printf("\n\nmaximum amount of cakes we can buy is: %d", customer.getMaxAmountOfCakesAbleToBuy());
+        customer.countMaxAmountOfCakes(first, second);
 
+        System.out.println("\n\n" + customer.getMaxAmountOfCakesAbleToBuy());
 
 
     }
