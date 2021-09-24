@@ -10,7 +10,6 @@ import java.util.Locale;
 Обязательно необходимо купить разные торты (т.е. хотя бы один торт каждого вида).
 Если такое невозможно, торты вообще не покупать.
 */
-
 public class Main {
 
     public static void main(String[] args) {
@@ -27,7 +26,6 @@ public class Main {
         customer.countMaxAmountOfCakes(first, second);
 
         System.out.println("\n\n" + customer.getMaxAmountOfCakesAbleToBuy());
-
 
     }
 }

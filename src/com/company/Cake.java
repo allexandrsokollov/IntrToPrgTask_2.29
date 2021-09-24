@@ -4,7 +4,7 @@ public class Cake {
     private int cakePrice;
     private int amountOfThisCake;
     private static int amountOfCakes;
-    private int numberOfThisCake;
+    private final int numberOfThisCake;
 
     public Cake() {
         amountOfCakes++;

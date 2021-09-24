@@ -3,7 +3,7 @@ package com.company;
 import java.util.Scanner;
 
 public class GetDataForClasses {
-    private static Scanner in = new Scanner(System.in);
+    private static final Scanner in = new Scanner(System.in);
 
     public static void getCakeData(Cake cake) {
         System.out.print("\nEnter price of cake number " + cake.getNumberOfThisCake() + ": ");

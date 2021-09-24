@@ -1,12 +1,9 @@
 package com.company;
 
-import java.util.Scanner;
-
 public class Customer {
 
     private int amountOfMoney;
     private int maxAmountOfCakesAbleToBuy = 0;
-    private Scanner in = new Scanner(System.in);
 
     public void countMaxAmountOfCakes(Cake first, Cake second){
         if (amountOfMoney < (first.getCakePrice() + second.getCakePrice()) ||
@@ -30,11 +27,12 @@ public class Customer {
     private void buyCakeWhileAble(Cake cake) {
 
     int ableToBuy = Math.floorDiv(amountOfMoney, cake.getCakePrice() );
-    if(ableToBuy >= cake.getAmountOfThisCake()) {
-        ableToBuy = cake.getAmountOfThisCake();
-    }
-    buyCake(cake, ableToBuy);
 
+        if(ableToBuy >= cake.getAmountOfThisCake()) {
+            ableToBuy = cake.getAmountOfThisCake();
+        }
+
+    buyCake(cake, ableToBuy);
     }
 
     private void buyCake(Cake cake, int amount) {
