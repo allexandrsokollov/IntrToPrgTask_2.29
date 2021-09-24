@@ -17,7 +17,7 @@ public class Customer {
             second = tmp;
         }
 
-        buyCake(first, 1);
+        buyCake(first);
         buyCakeWhileAble(second);
         if (amountOfMoney >= first.getCakePrice()) {
             buyCakeWhileAble(first);
@@ -39,6 +39,12 @@ public class Customer {
         maxAmountOfCakesAbleToBuy += amount;
         cake.decrementAmountOfCake(amount);
         amountOfMoney -= (cake.getCakePrice() * amount);
+    }
+
+    private void buyCake(Cake cake) {
+        maxAmountOfCakesAbleToBuy++;
+        cake.decrementAmountOfCake(1);
+        amountOfMoney -= cake.getCakePrice();
     }
 
 
