@@ -1,7 +1,7 @@
 package com.company;
 
 public class Cake {
-    private double cakePrice;
+    private int cakePrice;
     private int amountOfThisCake;
     private static int amountOfCakes;
     private int numberOfThisCake;
@@ -11,11 +11,11 @@ public class Cake {
         numberOfThisCake = amountOfCakes;
     }
 
-    public double getCakePrice() {
+    public int getCakePrice() {
         return cakePrice;
     }
 
-    public void setCakePrice(double cakePrice) {
+    public void setCakePrice(int cakePrice) {
         this.cakePrice = cakePrice;
     }
 

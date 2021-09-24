@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Customer {
 
-    private double amountOfMoney;
+    private int amountOfMoney;
     private int maxAmountOfCakesAbleToBuy = 0;
     private Scanner in = new Scanner(System.in);
 
@@ -29,15 +29,18 @@ public class Customer {
 
     private void buyCakeWhileAble(Cake cake) {
 
-    double amountOfCakesAbleToBuy = amountOfMoney / cake.getCakePrice();
-    buyCake(cake, (int)amountOfCakesAbleToBuy);
+    int ableToBuy = Math.floorDiv(amountOfMoney, cake.getCakePrice() );
+    if(ableToBuy >= cake.getAmountOfThisCake()) {
+        ableToBuy = cake.getAmountOfThisCake();
+    }
+    buyCake(cake, ableToBuy);
 
     }
 
     private void buyCake(Cake cake, int amount) {
         maxAmountOfCakesAbleToBuy += amount;
         cake.decrementAmountOfCake(amount);
-        amountOfMoney -= cake.getCakePrice() * amount;
+        amountOfMoney -= (cake.getCakePrice() * amount);
     }
 
 
@@ -45,7 +48,7 @@ public class Customer {
         return maxAmountOfCakesAbleToBuy;
     }
 
-    public void setAmountOfMoney(double amountOfMoney) {
+    public void setAmountOfMoney(int amountOfMoney) {
         this.amountOfMoney = amountOfMoney;
     }
 }

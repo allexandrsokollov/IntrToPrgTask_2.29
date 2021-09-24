@@ -7,7 +7,7 @@ public class GetDataForClasses {
 
     public static void getCakeData(Cake cake) {
         System.out.print("\nEnter price of cake number " + cake.getNumberOfThisCake() + ": ");
-        cake.setCakePrice(in.nextDouble());
+        cake.setCakePrice(in.nextInt());
 
         System.out.print("\nEnter amount of cakes number " + cake.getNumberOfThisCake() + ": ");
         cake.setAmountOfThisCake(in.nextInt());
@@ -15,6 +15,6 @@ public class GetDataForClasses {
 
     public static void getCustomerData(Customer customer) {
         System.out.print("\nEnter amount of money: ");
-        customer.setAmountOfMoney(in.nextDouble());
+        customer.setAmountOfMoney(in.nextInt());
     }
 }
