@@ -32,7 +32,7 @@ public class Customer {
             ableToBuy = cake.getAmountOfThisCake();
         }
 
-    buyCake(cake, ableToBuy);
+        buyCake(cake, ableToBuy);
     }
 
     private void buyCake(Cake cake, int amount) {
